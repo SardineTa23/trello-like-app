@@ -30,7 +30,7 @@ export default {
   computed: {
     ...mapState([
       // stateのlistsを参照
-      'lists'
+      "lists",
     ]),
   },
 };

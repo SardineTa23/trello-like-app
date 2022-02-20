@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import ScreenBoard from './components/ScreenBoard.vue'
+import ScreenBoard from "./components/ScreenBoard.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    ScreenBoard
-  }
-}
+    ScreenBoard,
+  },
+};
 </script>
