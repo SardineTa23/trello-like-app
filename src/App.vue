@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <screenBoard />
+    <screen-board />
   </div>
 </template>
 
 <script>
-import screenBoard from './components/screenBoard.vue'
+import ScreenBoard from './components/ScreenBoard.vue'
 
 export default {
   name: 'app',
   components: {
-    screenBoard
+    ScreenBoard
   }
 }
 </script>
