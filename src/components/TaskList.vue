@@ -2,6 +2,8 @@
   <div class="list">
     <div class="listheader">
       <p class="list-title">{{ title }}</p>
+                                        <!-- computedの呼び出し -->
+      <p class="list-counter">total: {{ totalCardInList }}</p>
       <div class="deletelist" @click="removeList">×</div>
     </div>
     <card-show
@@ -36,6 +38,11 @@ export default {
     listIndex: {
       type: Number,
       required: true,
+    },
+  },
+  computed: {
+    totalCardInList() {
+      return this.cards.length;
     },
   },
   methods: {

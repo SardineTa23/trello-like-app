@@ -2,7 +2,7 @@
   <div>
     <header>Trello Like App</header>
     <main>
-      <p class="info-line">All: 0 tasks</p>
+      <p class="info-line">All: {{ totalCardCount }} tasks</p>
       <div class="list-index">
         <!-- v-bind(:hoge)でバインドさせたコンポーネントにデータを受け渡すことができる -->
         <task-list
@@ -33,6 +33,9 @@ export default {
       // stateのlistsを参照
       "lists",
     ]),
+    totalCardCount() {
+      return this.$store.getters.totalCardCount;
+    },
   },
 };
 </script>
