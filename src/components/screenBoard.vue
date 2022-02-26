@@ -3,7 +3,7 @@
     <header>Trello Like App</header>
     <main>
       <p class="info-line">All: {{ totalCardCount }} tasks</p>
-      <div class="list-index">
+      <draggable :list="lists" @end="movingList" class="list-index">
         <!-- v-bind(:hoge)でバインドさせたコンポーネントにデータを受け渡すことができる -->
         <task-list
           v-for="(item, index) in lists"
@@ -14,7 +14,7 @@
           @change="movingCard"
         />
         <task-list-add />
-      </div>
+      </draggable>
     </main>
   </div>
 </template>
@@ -23,11 +23,13 @@
 import TaskListAdd from "./TaskListAdd.vue";
 import TaskList from "./TaskList";
 import { mapState } from "vuex";
+import draggable from "vuedraggable";
 
 export default {
   components: {
     TaskListAdd,
     TaskList,
+    draggable,
   },
   computed: {
     ...mapState([
@@ -40,6 +42,9 @@ export default {
   },
   methods: {
     movingCard: function () {
+      this.$store.dispatch("updateList", { lists: this.lists });
+    },
+    movingList: function () {
       this.$store.dispatch("updateList", { lists: this.lists });
     },
   },
